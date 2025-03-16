@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Hasanov bilan suhbat</title>
+    <!-- agar chatlarni ichini do'ldirjoq bo'sang boshqa chat2.html yo boshqa nom bilan och keyin title shu odamni nikini qo'y bo'ldi -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .chat-container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-header {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .message {
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            max-width: 70%;
+        }
+        .incoming {
+            background: #ddd;
+            text-align: left;
+            margin-left: 0;
+        }
+        .outgoing {
+            background: #007bff;
+            color: white;
+            text-align: right;
+            margin-left: auto;
+        }
+        .input-container {
+            display: flex;
+            padding: 10px;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-container button {
+            padding: 8px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">Ali Hasanov bilan suhbat</div>
+        
+        <div class="messages" id="chatBox"></div>
+        
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Xabar yozing...">
+            <button onclick="sendMessage()">Yuborish</button>
+        </div>
+    </div>
+
+    <script>
+        // Har bir chat uchun alohida kalit
+        const chatKey = "chat1_messages"; 
+
+        // Xabarlarni saqlash
+        function saveMessages() {
+            let chatBox = document.getElementById("chatBox").innerHTML;
+            localStorage.setItem(chatKey, chatBox);
+        }
+
+        // Xabarlarni yuklash
+        function loadMessages() {
+            let savedMessages = localStorage.getItem(chatKey);
+            if (savedMessages) {
+                document.getElementById("chatBox").innerHTML = savedMessages;
+            }
+        }
+
+        // Yangi xabar yuborish
+        function sendMessage() {
+            let input = document.getElementById("messageInput");
+            let messageText = input.value.trim();
+            if (messageText !== "") {
+                let chatBox = document.getElementById("chatBox");
+                let message = document.createElement("div");
+                message.classList.add("message", "outgoing");
+                message.innerText = messageText;
+                chatBox.appendChild(message);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                input.value = "";
+                saveMessages(); // Xabarlarni saqlash
+            }
+        }
+
+        // Sahifa yuklanganda xabarlarni qayta tiklash
+        window.onload = loadMessages;
+    </script>
+
+</body>
+</html>

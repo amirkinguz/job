@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS LINK -->
+     <link rel="stylesheet" href="./main.chat.css">
+     <style>
+        /* styli boshlandi */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.user-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+.user-row:hover {
+    background: #f0f0f0;
+}
+.user-row img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.user-row .name {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+.user-row .arrow {
+    font-size: 20px;
+    color: #666;
+}
+     </style>
+</head>
+<body>
+  <!-- bosh sahifa -->
+    <div class="container">
+        <div class="header">Xush kelibsiz</div>
+        <!-- chatlar -->
+         <!-- link tayyor ulash kerak yangi chat2.html och va ulash kerak holos -->
+        <div class="user-row" onclick="openChat('chat.html')">
+            <img src="./img/i.webp" alt="User">
+            <div class="name">Ali Hasanov</div>
+            <div class="arrow">>>>>></div>
+        </div>
+        <!-- link tayyor ulash kerak yangi chat2.html och va ulash kerak holos -->
+        <div class="user-row" onclick="openChat('chat2.html')">
+            <img src="./img/i.webp" alt="User">
+            <div class="name">Dilnoza Karimova</div>
+            <div class="arrow">>>>>></div>
+        </div>
+          <!-- link tayyor ulash kerak yangi chat2.html och va ulash kerak holos -->
+        <div class="user-row" onclick="openChat('chat3.html')">
+            <img src="./img/i.webp" alt="User">
+            <div class="name">Javlon Bekmurodov</div>
+            <div class="arrow">>>>>></div>
+        </div>
+         <!-- link tayyor ulash kerak yangi chat2.html och va ulash kerak holos -->
+        <div class="user-row" onclick="openChat('chat4.html')">
+            <img src="./img/i.webp" alt="User">
+            <div class="name">Gulnora Akhmedova</div>
+            <div class="arrow">>>>>></div>
+        </div>
+<!-- chatlar tugadi -->
+    </div>
+     <!-- ko'rsatuv -->
+      <h6 style="font-size: 100px;">Marxamat saytingiz tayyor :)</h6>
+      <img  src="./img/i.webp" alt="">
+    <script>
+        function openChat(chatPage) {
+            // userni kerakli chat sahifasiga yo‘naltirish
+            window.location.href = chatPage;  
+        }
+    </script>
+
+</body>
+</html>
